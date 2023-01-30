@@ -24,3 +24,5 @@ dist-ssr
 *.sw?
 
 sltoken.txt
+buildSessionId
+sl_web
