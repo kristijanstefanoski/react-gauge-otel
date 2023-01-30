@@ -40,12 +40,16 @@ function SimpleCalculation() {
     // @ts-ignore
     <Form onSubmit={handleSubmit}>
       <h3>Simple Mathematical Evaluator</h3>
-      <Form.Group className="mb-3" controlId="expression">
+      <Form.Group className="mb-3">
         <Form.Label>Type a simple mathematical expression</Form.Label>
-        <Form.Control type="string" placeholder="ex. (3*7+4)*0.25" />
+        <Form.Control
+          id="expression"
+          type="string"
+          placeholder="ex. (3*7+4)*0.25"
+        />
       </Form.Group>
 
-      <Button variant="primary" type="submit">
+      <Button id="evaluateSimple" variant="primary" type="submit">
         Evaluate Expression
       </Button>
     </Form>

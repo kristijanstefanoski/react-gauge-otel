@@ -2,19 +2,21 @@
   "name": "react-calculations-ui",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "gauge run specs/"
   },
   "dependencies": {
     "axios": "^1.2.5",
     "bootstrap": "^5.2.3",
+    "jwt-decode": "^3.1.2",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.0",
     "react-dom": "^18.2.0",
-    "react-toastify": "^9.1.1"
+    "react-toastify": "^9.1.1",
+    "taiko": "latest"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",

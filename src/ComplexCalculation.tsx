@@ -52,23 +52,23 @@ function SimpleCalculation() {
     // @ts-ignore
     <Form onSubmit={handleSubmit}>
       <h3>Mathematical Summator</h3>
-      <Form.Group className="mb-3" controlId="first">
+      <Form.Group className="mb-3">
         <Form.Label>Enter the first element of the series</Form.Label>
-        <Form.Control type="number" placeholder="ex. 1" />
+        <Form.Control type="number" id="first" placeholder="ex. 1" />
       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="ratio">
+      <Form.Group className="mb-3">
         <Form.Label>Enter the common ratio of the series</Form.Label>
-        <Form.Control type="number" placeholder="ex. 2" />
+        <Form.Control type="number" id="ratio" placeholder="ex. 2" />
       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="count">
+      <Form.Group className="mb-3">
         <Form.Label>Number of terms to sum</Form.Label>
-        <Form.Control type="number" placeholder="ex. 4" />
+        <Form.Control type="number" id="count" placeholder="ex. 4" />
       </Form.Group>
 
-      <Button variant="primary" type="submit">
-        Evaluate Expression
+      <Button id="evaluateComplex" variant="primary" type="submit">
+        Evaluate Summation
       </Button>
     </Form>
   );
