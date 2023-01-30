@@ -29,3 +29,11 @@ npx slnodejs scan --workspacepath ./dist --tokenfile sltoken.txt --buildsessioni
 After a successful build can you should have a resulting `sl_web` folder.
 
 **IMPORTANT:** Do not delete `sltoken.txt` of `buildSessionId` files after the build scan, they are used in the Gauge tests.
+
+## Running gauge tests
+Make sure you have [gauge](https://docs.gauge.org/getting_started/installing-gauge.html?os=linux&language=javascript&ide=vscode) installed
+on your system.
+
+```bash
+npm run test
+```
