@@ -1,24 +1,24 @@
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { toast } from "react-toastify";
-import axios from "axios";
+import { getGeometricSum } from "./services";
 
 function SimpleCalculation() {
   const handleSubmit = async (
     event: Event & {
       target: {
-        first: { value: string };
-        ratio: { value: string };
-        count: { value: string };
+        first: { value: number };
+        ratio: { value: number };
+        count: { value: number };
       };
     }
   ) => {
     event.preventDefault();
     const { first, ratio, count } = event.target;
     if (
-      !first?.value?.length ||
-      !ratio?.value?.length ||
-      !count?.value?.length
+      !first?.value?.toString()?.length ||
+      !ratio?.value?.toString()?.length ||
+      !count?.value?.toString()?.length
     ) {
       return toast.error("Please fill in all the fields", {
         position: "top-right",
@@ -32,9 +32,11 @@ function SimpleCalculation() {
       });
     }
 
-    const { data } = (await axios.get(
-      `http://localhost:9080/api/sum/geometric?first=${first.value}&ratio=${ratio.value}&count=${count.value}`
-    )) as { data: { result: number } };
+    const { data } = await getGeometricSum(
+      first.value,
+      ratio.value,
+      count.value
+    );
     return toast.success(`The result of the summation is: ${data.result}`, {
       position: "top-center",
       autoClose: false,
@@ -52,17 +54,17 @@ function SimpleCalculation() {
       <h3>Mathematical Summator</h3>
       <Form.Group className="mb-3" controlId="first">
         <Form.Label>Enter the first element of the series</Form.Label>
-        <Form.Control type="string" placeholder="ex. 1" />
+        <Form.Control type="number" placeholder="ex. 1" />
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="ratio">
         <Form.Label>Enter the common ratio of the series</Form.Label>
-        <Form.Control type="string" placeholder="ex. 2" />
+        <Form.Control type="number" placeholder="ex. 2" />
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="count">
         <Form.Label>Number of terms to sum</Form.Label>
-        <Form.Control type="string" placeholder="ex. 4" />
+        <Form.Control type="number" placeholder="ex. 4" />
       </Form.Group>
 
       <Button variant="primary" type="submit">

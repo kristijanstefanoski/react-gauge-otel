@@ -1,7 +1,7 @@
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { toast } from "react-toastify";
-import axios from "axios";
+import { evaluateExpression } from "./services";
 
 function SimpleCalculation() {
   const handleSubmit = async (
@@ -24,9 +24,7 @@ function SimpleCalculation() {
       });
     }
 
-    const { data } = (await axios.get(
-      `http://localhost:9080/api/evaluate/${expression}`
-    )) as { data: { result: number } };
+    const { data } = await evaluateExpression(expression);
     return toast.success(`The result is: ${data.result}`, {
       position: "top-center",
       autoClose: false,
